@@ -71,7 +71,7 @@ public class Base64Decoder {
 		int x = 1;
 		str[0] =  file.substring(0,4);
 		System.out.println(str[0]);
-		for (int i = 0; i < file.length()/4; i++) {
+		for (int i = 0; i < file.length(); i++) {
 			if(i >3 && i%4 == 0) {
 				str[x] = file.substring(i, i+4);
 				
@@ -83,14 +83,16 @@ public class Base64Decoder {
 		int y = 0;
 //		byte[] by = convert4CharsTo24Bits(str[0]);
 //		arr[0] = (byte) (by[0] + by[1] + by[2]);
-		for (int i = 0; i < arr.length; i++) {
+		for (int i = 0; i < str.length; i++) {
 			byte[] b;
 			b = convert4CharsTo24Bits(str[i]);
-				arr[i] = (byte) (b[0]);
-				arr[i+1] = (byte) (b[1]);
-				arr[i+2] = (byte) (b[2]);
-				System.out.println(arr[i]);
-//				y++;
+				arr[y] = (byte) (b[0]);
+				arr[y+1] = (byte) (b[1]);
+				arr[y+2] = (byte) (b[2]);
+				System.out.println(arr[y]);
+				System.out.println(arr[y+1]);
+				System.out.println(arr[y+2]);
+				y+=3;
 		
 		}
 
